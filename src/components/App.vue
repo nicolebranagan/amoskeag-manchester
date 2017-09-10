@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <room></room>
+    <toolbar></toolbar>
   </div>
 </template>
 
 <script>
 import Room from './Room.vue'
+import Toolbar from './Toolbar.vue'
+
 export default {
   name: 'app',
   data () {
     return { }
   },
-  components: { Room }
+  components: { Room, Toolbar }
 }
 </script>
 
@@ -21,8 +24,8 @@ export default {
   margin-right: auto;
   margin-left: auto;
 
-  border-style: inset;
+  border-style: outset;
   border-width: 0.25em;
-  border-color: #555555;
+  border-color: #333333;
 }
 </style>

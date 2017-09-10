@@ -30,7 +30,16 @@ const mutations = {
   }
 }
 
+// actions
+const actions = 
+{
+  look_room({ commit }, e) {
+    commit('UPDATE', {title: e.title})
+  }
+}
+
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  actions
 })
