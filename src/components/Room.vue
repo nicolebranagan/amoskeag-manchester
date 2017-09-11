@@ -1,7 +1,7 @@
 <template>
   <div id="room">
-    <div id="title">{{ $store.state.title }}</div>
-    <div id="desc">{{ $store.state.desc }}</div>
+    <div id="title">{{ $store.state.room.title }}</div>
+    <div id="desc">{{ $store.state.room.desc }}</div>
   </div>
 </template>
 
@@ -26,5 +26,6 @@ export default {
 #desc {
   height: 300px;
   overflow-y: scroll;
+  white-space: pre-line;
 }
 </style>

@@ -1,25 +1,29 @@
 <template>
   <div id="app">
-    <room></room>
-    <toolbar></toolbar>
+    <div id="container">
+      <room></room>
+      <toolbar></toolbar>
+    </div>
+    <start></start>
   </div>
 </template>
 
 <script>
 import Room from './Room.vue'
 import Toolbar from './Toolbar.vue'
+import Start from './Start.vue'
 
 export default {
   name: 'app',
   data () {
     return { }
   },
-  components: { Room, Toolbar }
+  components: { Room, Toolbar, Start }
 }
 </script>
 
 <style>
-#app {
+#container {
   max-width: 800px;
   margin-right: auto;
   margin-left: auto;
