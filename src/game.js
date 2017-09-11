@@ -5,7 +5,6 @@ function get_anonymous_token(callback) {
     (response) => response.json()
   ).then(
     (r) => {
-      console.log(r);
       if (r.success === true)
         callback(r.token);
       else
@@ -21,7 +20,6 @@ function get({token}, url, callback) {
     (response) => response.json()
   ).then(
     (r) => {
-      console.log(r);
       if (r.success === true)
         callback(r.output);
       else
