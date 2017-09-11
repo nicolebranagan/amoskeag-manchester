@@ -54,7 +54,7 @@ export default {
 }
 
 .modal-container {
-  width: 600px;
+  max-width: 600px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #400;
@@ -64,7 +64,8 @@ export default {
   box-shadow: 0.5em 0.5em rgba(0, 0, 0, .33);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
-  min-height: 50%;
+  max-height: 50%;
+  overflow: scroll;
   color: #EEEEE0;
 }
 
@@ -72,6 +73,7 @@ export default {
   margin-top: 0;
   text-align: center;
   color: #EEEEEE;
+  font-size: 1.1em;
 }
 
 .modal-body {
@@ -87,7 +89,7 @@ button {
   text-shadow: 1px 1px 0px #444444;
   box-shadow: 4px 4px rgba(0, 0, 0, .33);
   color: #ffffff;
-  font-size: 16px;
+  font-size: 1em;
   background: #0023eb;
   padding: 7px 10px 7px 10px;
   text-decoration: none;

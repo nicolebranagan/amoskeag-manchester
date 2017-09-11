@@ -3,8 +3,9 @@
     <div slot="header">Welcome to Amoskeag-Manchester</div>
     <div slot="body">
       <ul>
-        <li><button @click="anonymous">Proceed Anonymously</button></li>
         <li><button>Log in</button></li>
+        <li><button>Register</button></li>
+        <li><button @click="anonymous">Proceed Anonymously</button></li>
       </ul>
     </div>
   </modal>

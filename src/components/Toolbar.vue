@@ -18,6 +18,9 @@ export default {
 <style scoped>
 #toolbar {
   background-color: #666666;
-  height: 64px;
+  height: 15%;
+  min-height: 2em;
+  width: 100%;
+  bottom: 0;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="container">
+      <toolbar></toolbar>
       <room></room>
       <toolbar></toolbar>
     </div>
@@ -25,11 +26,16 @@ export default {
 <style>
 #container {
   max-width: 800px;
-  margin-right: auto;
+  position: absolute;
   margin-left: auto;
-
-  border-style: outset;
-  border-width: 0.25em;
-  border-color: #333333;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  vertical-align: top;
+  display: flex;
+  flex-direction: column;
 }
 </style>

@@ -14,8 +14,11 @@ export default {
 <style scoped>
 #room {
   background-color: #FFFFFF;
+  background: linear-gradient(to bottom, #ffffff 0%,#fffce5 100%); 
   color: #000000;
   padding: 1em;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 #title {
@@ -24,8 +27,6 @@ export default {
 }
 
 #desc {
-  height: 300px;
-  overflow-y: scroll;
   white-space: pre-line;
 }
 </style>
