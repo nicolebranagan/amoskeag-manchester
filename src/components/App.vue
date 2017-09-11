@@ -3,7 +3,7 @@
     <div id="container">
       <toolbar></toolbar>
       <room></room>
-      <toolbar></toolbar>
+      <gamebar></gamebar>
     </div>
     <start></start>
   </div>
@@ -13,13 +13,14 @@
 import Room from './Room.vue'
 import Toolbar from './Toolbar.vue'
 import Start from './Start.vue'
+import Gamebar from './Gamebar.vue'
 
 export default {
   name: 'app',
   data () {
     return { }
   },
-  components: { Room, Toolbar, Start }
+  components: { Room, Toolbar, Start, Gamebar }
 }
 </script>
 
