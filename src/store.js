@@ -8,6 +8,7 @@ Vue.use(Vuex)
 const state = {
   loaded: false,
   list: null,
+  convo: null,
 
   token: "",
   room: {
@@ -35,7 +36,6 @@ const mutations = {
       get: if_exists(data.get),
       exit: if_exists(data.exit),
     }
-    console.log(room.talk);
     state.room = room;
   },
 
@@ -46,6 +46,10 @@ const mutations = {
 
   SET_LIST(state, list) {
     state.list = list;
+  },
+
+  SET_CONVO(state, convo) {
+    state.convo = convo;
   }
 }
 
@@ -55,7 +59,7 @@ const actions =
   anonymous_token({ commit, dispatch }) {
     Game.get_anonymous_token( token => {
       commit('SET_TOKEN', token);
-      dispatch('look_room')
+      dispatch('look_room');
     })
   },
 
@@ -71,6 +75,15 @@ const actions =
       items: state.room[type]
     }
     commit('SET_LIST', list);
+    commit('SET_CONVO', null);
+  },
+
+  get_convo({ commit, state }, { type, id }) {
+    Game.post(state, '/game/' + type, {id}, output => {
+      commit('SET_LIST', null);
+      commit('SET_CONVO', output);
+      dispatch('look_room');
+    })
   }
 }
 

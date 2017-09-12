@@ -7,6 +7,7 @@
     </div>
     <start v-if="!$store.state.loaded"></start>
     <list v-if="$store.state.list != null"></list>
+    <talk v-if="$store.state.convo != null"></talk>
   </div>
 </template>
 
@@ -16,13 +17,14 @@ import Toolbar from './Toolbar.vue'
 import Start from './Start.vue'
 import Gamebar from './Gamebar.vue'
 import List from './List.vue'
+import Talk from './Talk.vue'
 
 export default {
   name: 'app',
   data () {
     return { }
   },
-  components: { Room, Toolbar, Start, Gamebar, List }
+  components: { Room, Toolbar, Start, Gamebar, List, Talk }
 }
 </script>
 

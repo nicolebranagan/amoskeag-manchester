@@ -22,7 +22,10 @@ export default {
   name: 'list',
   data () {
     return {
-      call: (item) => {console.log(item)}
+      call: (item) => {this.$store.dispatch('get_convo', {
+        id: item.id,
+        type: this.$store.state.list.type
+      })}
     }
   },
   computed: {
