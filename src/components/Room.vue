@@ -19,6 +19,7 @@ export default {
   padding: 1em;
   height: 100%;
   overflow-y: scroll;
+  font-family: 'Merriweather', serif;
 }
 
 #title {
