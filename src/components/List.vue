@@ -1,7 +1,7 @@
 <template>
   <modal @close="$store.state.list = null">
     <div slot="header">
-      <i class="fa fa-times fa-2x close-button" @click="$emit('close')"></i>
+      <i class="fa fa-times fa-2x close-button" @click="$store.state.list = null"></i>
       {{ label }}
     </div>
     <div slot="body">

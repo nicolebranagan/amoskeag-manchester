@@ -49,11 +49,13 @@ export default {
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
+  text-align: center;
   height: 100%;
   width: 100%;
 }
 
 .modal-container {
+  display:inline-block;
   max-width: 500px;
   margin: 0px auto;
   padding: 20px 30px;
