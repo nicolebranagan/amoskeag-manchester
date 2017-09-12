@@ -7,6 +7,8 @@ Vue.use(Vuex)
 // default state
 const state = {
   loaded: false,
+  list: null,
+
   token: "",
   room: {
     title: "",
@@ -33,12 +35,17 @@ const mutations = {
       get: if_exists(data.get),
       exit: if_exists(data.exit),
     }
+    console.log(room.talk);
     state.room = room;
   },
 
   SET_TOKEN(state, token) {
     state.token = token;
     state.loaded = true;
+  },
+
+  SET_LIST(state, list) {
+    state.list = list;
   }
 }
 
@@ -57,6 +64,14 @@ const actions =
       commit('UPDATE', output)
     })
   },
+
+  apply_list({ commit, state }, { type }) {
+    const list = {
+      type,
+      items: state.room[type]
+    }
+    commit('SET_LIST', list);
+  }
 }
 
 export default new Vuex.Store({

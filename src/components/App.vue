@@ -5,7 +5,8 @@
       <room></room>
       <gamebar></gamebar>
     </div>
-    <start v-if="!$store.state.loaded" @close="$store.state.loaded = true"></start>
+    <start v-if="!$store.state.loaded"></start>
+    <list v-if="$store.state.list != null"></list>
   </div>
 </template>
 
@@ -14,13 +15,14 @@ import Room from './Room.vue'
 import Toolbar from './Toolbar.vue'
 import Start from './Start.vue'
 import Gamebar from './Gamebar.vue'
+import List from './List.vue'
 
 export default {
   name: 'app',
   data () {
     return { }
   },
-  components: { Room, Toolbar, Start, Gamebar }
+  components: { Room, Toolbar, Start, Gamebar, List }
 }
 </script>
 
