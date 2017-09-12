@@ -33,7 +33,7 @@ export default {
 }
 
 .gamebar {
-  margin-top: 0.65em;
+  margin-top: 0.7em;
   height:100%;
   vertical-align: middle;
   text-align: center;

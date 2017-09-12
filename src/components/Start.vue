@@ -1,5 +1,5 @@
 <template>
-  <modal v-if="!$store.state.loaded" @close="$store.state.loaded = true">
+  <modal>
     <div slot="header">Welcome to Amoskeag-Manchester</div>
     <div slot="body">
       <ul>

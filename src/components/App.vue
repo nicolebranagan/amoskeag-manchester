@@ -5,7 +5,7 @@
       <room></room>
       <gamebar></gamebar>
     </div>
-    <start></start>
+    <start v-if="!$store.state.loaded" @close="$store.state.loaded = true"></start>
   </div>
 </template>
 
