@@ -36,6 +36,11 @@ export default {
 </script>
 
 <style>
+.talk_desc {
+  padding-bottom: 1em;
+  font-family: 'Merriweather', serif;
+}
+
 ul {
   list-style-type: none;
   margin: 0em;
@@ -47,6 +52,7 @@ li {
   color: #2AF;
   text-decoration: underline;
   cursor: pointer;
+  font-size: 1.2em;
 }
 
 .modal-container {
