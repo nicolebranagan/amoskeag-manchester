@@ -29,7 +29,7 @@ const mutations = {
       return input ? input : [];
     }
     const room = {
-      title: data.title ? data.title : "",
+      title: data.endgame ? "GAME OVER" : (data.title ? data.title : ""),
       desc: data.desc ? data.desc : "",
       look: if_exists(data.look),
       talk: if_exists(data.talk),
@@ -50,6 +50,19 @@ const mutations = {
 
   SET_CONVO(state, convo) {
     state.convo = convo;
+  },
+
+  ENDGAME(state, desc) {
+    state.room = {
+      title: "GAME OVER",
+      desc: desc,
+      look: [],
+      talk: [],
+      get: [],
+      exit: [],
+    };
+    state.convo = null;
+    state.list = null;
   }
 }
 
@@ -80,9 +93,12 @@ const actions =
 
   get_convo({ commit, state }, { type, id }) {
     Game.post(state, '/game/' + type, {id}, output => {
-      commit('SET_LIST', null);
-      commit('SET_CONVO', output);
-      dispatch('look_room');
+      if (output.endgame) {
+        commit('ENDGAME', output.desc);
+      } else {
+        commit('SET_LIST', null);
+        commit('SET_CONVO', output);
+      }
     })
   }
 }

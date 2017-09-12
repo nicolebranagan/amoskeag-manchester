@@ -1,7 +1,7 @@
 <template>
-  <modal @close="$store.state.convo = null">
+  <modal @close="close()">
     <div slot="header">
-      <i class="fa fa-times fa-2x close-button" @click="$store.state.convo = null"></i>
+      <i class="fa fa-times fa-2x close-button" @click="close()"></i>
     </div>
     <div slot="body">
       <div class="talk_desc">
@@ -27,7 +27,8 @@ export default {
       call: (item) => {this.$store.dispatch('get_convo', {
         id: item.id,
         type: 'talk'
-      })}
+      })},
+      close: () => {this.$store.state.convo = null; this.$store.dispatch('look_room');}
     }
   },
   components: { Modal }

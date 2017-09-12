@@ -25,6 +25,7 @@ export default {
 #title {
   text-align: center;
   font-size: larger;
+  margin-bottom: 0.75em;
 }
 
 #desc {
