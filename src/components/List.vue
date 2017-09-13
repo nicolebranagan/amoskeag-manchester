@@ -63,6 +63,7 @@ li {
   color: #2AF;
   text-decoration: underline;
   cursor: pointer;
+  font-size: 1.2em;
 }
 
 .modal-container {

@@ -9,6 +9,7 @@ const state = {
   loaded: false,
   list: null,
   convo: null,
+  status: null,
 
   token: "",
   room: {
@@ -63,6 +64,10 @@ const mutations = {
     };
     state.convo = null;
     state.list = null;
+  },
+
+  SET_STATUS(state, status) {
+    state.status = status;
   }
 }
 
@@ -99,6 +104,12 @@ const actions =
         commit('SET_LIST', null);
         commit('SET_CONVO', output);
       }
+    })
+  },
+
+  get_status({ commit, state }) {
+    Game.get(state, '/game/status', output => {
+      commit('SET_STATUS', output);
     })
   }
 }
