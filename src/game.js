@@ -28,7 +28,7 @@ function get({token}, url, callback) {
   )
 }
 
-function post({token}, url, data, callback) {
+function post({token}, url, data, callback, failed) {
   const header = new Headers();
   header.append('Authorization', 'Bearer ' + token);
   header.append('Content-Type', 'application/json');
@@ -44,7 +44,7 @@ function post({token}, url, data, callback) {
       if (r.success === true)
         callback(r.output);
       else
-        callback("");
+        failed(r.message);
     }
   )
 }

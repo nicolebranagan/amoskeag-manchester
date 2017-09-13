@@ -22,10 +22,18 @@ export default {
   name: 'list',
   data () {
     return {
-      call: (item) => {this.$store.dispatch('get_convo', {
-        id: item.id,
-        type: this.$store.state.list.type
-      })}
+      call: (item) => {
+        if (this.$store.state.list.type == "exit") {
+            this.$store.dispatch('move', {
+            id: item.id,
+          })
+        } else {
+          this.$store.dispatch('get_convo', {
+            id: item.id,
+            type: this.$store.state.list.type
+          })
+        }
+      }
     }
   },
   computed: {

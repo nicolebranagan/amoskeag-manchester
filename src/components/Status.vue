@@ -4,17 +4,18 @@
       <i class="fa fa-times fa-2x close-button" @click="close()"></i>
     </div>
     <div slot="body">
-      <div class="self_desc">
+      <div class="self_desc" v-if="item == null">
         {{ $store.state.status.desc }}
       </div>
       <h3 @click="call">{{ mode }}</h3>
       <ul v-if="mode == 'Inventory'">
-        <li v-for="item in $store.state.status.inventory" :key="item.id" @click="call(item)">
+        <li v-for="item in $store.state.status.inventory" :key="item.look" @click="call(item)">
           {{ item.label }}
         </li>
       </ul>
       <ul v-if="item !== null">
-        <li v-for="item in $store.state.room.look" :key="item.id" @click="call(item)">
+        <li @click="use">Use by itself</li>
+        <li v-for="item in $store.state.room.look" :key="item.id" @click="use_on(item)">
           {{ item.label }}
         </li>
       </ul>
@@ -30,8 +31,16 @@ export default {
   name: 'status',
   data () {
     return {
-      call: (item) => {this.item = item;},
-      call2: (item) => {},
+      call: (item) => {console.log(item); this.item = item;},
+      use: () => {console.log(this.item); this.$store.dispatch('get_convo', {
+        id: this.item.look,
+        type: 'use'
+      })},
+      use_on: (item) => {this.$store.dispatch('get_convo', {
+        id: this.item.look,
+        target: item.id,
+        type: 'use'
+      })},
       close: () => {this.$store.state.status = null; this.$store.dispatch('look_room');},
       item: null,
     }
@@ -40,9 +49,9 @@ export default {
     mode: { 
       get() {
         if (this.item != null)
-          return "Use " + item.label + " on what?";
+          return "Use " + this.item.label + " on what?";
         if (this.$store.state.status.inventory.length == 0)
-          return "";
+          return "No items in inventory.";
         return "Inventory";
       }
     }
@@ -52,7 +61,7 @@ export default {
 </script>
 
 <style>
-.talk_desc {
+.self_desc {
   padding-bottom: 1em;
   font-family: 'Merriweather', serif;
 }
@@ -63,12 +72,16 @@ ul {
   padding: 0em;
 }
 
+h3 {
+  font-size: 1.1em;
+}
+
 li {
   padding: 0.5em;
   color: #2AF;
   text-decoration: underline;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .modal-container {

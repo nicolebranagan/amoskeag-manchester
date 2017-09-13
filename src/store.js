@@ -96,20 +96,33 @@ const actions =
     commit('SET_CONVO', null);
   },
 
-  get_convo({ commit, state }, { type, id }) {
-    Game.post(state, '/game/' + type, {id}, output => {
+  get_convo({ commit, state }, { type, id, target }) {
+    const data = {id};
+    if (target)
+      data.target = target;
+    Game.post(state, '/game/' + type, data, output => {
       if (output.endgame) {
         commit('ENDGAME', output.desc);
       } else {
         commit('SET_LIST', null);
+        commit('SET_STATUS', null);
         commit('SET_CONVO', output);
       }
+    }, output => {
+      commit('SET_CONVO', {desc: output})
     })
   },
 
   get_status({ commit, state }) {
     Game.get(state, '/game/status', output => {
       commit('SET_STATUS', output);
+    })
+  },
+
+  move({ dispatch, commit, state }, {id}) {
+    Game.post(state, '/game/move', {id}, output => {
+      commit('SET_LIST', null);
+      dispatch('look_room');
     })
   }
 }
