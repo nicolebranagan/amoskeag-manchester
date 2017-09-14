@@ -32,6 +32,7 @@ const mutations = {
     const room = {
       title: data.endgame ? "GAME OVER" : (data.title ? data.title : ""),
       desc: data.desc ? data.desc : "",
+      img: data.img ? data.img : null,
       look: if_exists(data.look),
       talk: if_exists(data.talk),
       get: if_exists(data.get),
@@ -57,6 +58,7 @@ const mutations = {
     state.room = {
       title: "GAME OVER",
       desc: desc,
+      img: null,
       look: [],
       talk: [],
       get: [],

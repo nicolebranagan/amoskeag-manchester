@@ -1,7 +1,10 @@
 <template>
   <div id="room">
     <div id="title">{{ $store.state.room.title }}</div>
-    <div id="desc">{{ $store.state.room.desc }}</div>
+    <div id="desc">
+      <img v-if="$store.state.room.img != null" v-bind:src="$store.state.room.img">
+      {{ $store.state.room.desc }}
+    </div>
   </div>
 </template>
 
@@ -30,5 +33,12 @@ export default {
 
 #desc {
   white-space: pre-line;
+}
+
+#desc img {
+  float: left;
+  max-width: 37%;
+  max-height: 30%;
+  padding: 1em;
 }
 </style>
